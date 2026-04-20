@@ -770,17 +770,7 @@ for(let i=0;i<12;i++) {
   container.appendChild(line);
 }
 
-// QR Code - apunta a WhatsApp de lanzamiento (puedes cambiar la URL)
-new QRCode(document.getElementById("qrcode"), {
-  text: "https://wa.me/584169003069?text=Quiero%20saber%20m%C3%A1s%20de%20MotoRide",
-  width: 128,
-  height: 128,
-  colorDark : "#000000",
-  colorLight : "#ffffff",
-  correctLevel : QRCode.CorrectLevel.H
-});
-
-// Countdown — fecha objetivo: 1 de Junio 2026
+// Countdown
 const target = new Date('2026-05-04T00:00:00').getTime();
 function updateCountdown() {
   const now = new Date().getTime();
@@ -801,34 +791,22 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Form submit
+// Form
 function submitForm() {
   const nombre = document.getElementById('f-nombre').value.trim();
   const tel = document.getElementById('f-tel').value.trim();
   const ciudad = document.getElementById('f-ciudad').value;
   const moto = document.getElementById('f-moto').value;
-  
   if(!nombre || !tel || !ciudad || !moto) {
     alert('Por favor completa todos los campos.');
     return;
   }
-
-  const mensaje = `🏍️ *PRE-REGISTRO CONDUCTOR MOTORIDE*
-
-👤 *Nombre:* ${nombre}
-📱 *Teléfono:* ${tel}
-📍 *Ciudad:* ${ciudad}
-🏍️ *Tipo de moto:* ${moto}
-
-_Registro desde la landing page_`;
-
+  const mensaje = `🏍️ *PRE-REGISTRO CONDUCTOR MOTORIDE*\n\n👤 *Nombre:* ${nombre}\n📱 *Teléfono:* ${tel}\n📍 *Ciudad:* ${ciudad}\n🏍️ *Tipo de moto:* ${moto}\n\n_Registro desde la landing page_`;
   const url = `https://wa.me/584169003069?text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
-  
   document.getElementById('formContent').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
-</script>
 
 </body>
 </html>
