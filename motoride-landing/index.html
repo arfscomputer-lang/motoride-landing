@@ -809,14 +809,26 @@ function submitForm() {
   const tel = document.getElementById('f-tel').value.trim();
   const ciudad = document.getElementById('f-ciudad').value;
   const moto = document.getElementById('f-moto').value;
+  
   if(!nombre || !tel || !ciudad || !moto) {
     alert('Por favor completa todos los campos.');
     return;
   }
-  // Aquí puedes conectar a Firebase o tu backend
+
+  const mensaje = `🏍️ *PRE-REGISTRO CONDUCTOR MOTORIDE*
+
+👤 *Nombre:* ${nombre}
+📱 *Teléfono:* ${tel}
+📍 *Ciudad:* ${ciudad}
+🏍️ *Tipo de moto:* ${moto}
+
+_Registro desde la landing page_`;
+
+  const url = `https://wa.me/584169003069?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+  
   document.getElementById('formContent').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
-  console.log('Registro:', {nombre, tel, ciudad, moto});
 }
 </script>
 
